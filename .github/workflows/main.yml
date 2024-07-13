@@ -1,0 +1,41 @@
+name: Ruby CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    name: Run ${{ matrix.type }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - type: 'RuboCop'
+            command: 'bundle exec rubocop'
+          - type: 'RSpec'
+            command: 'bundle exec rspec --format documentation --color'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '3.2.4'  # Adjust the Ruby version as necessary
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: ${{ matrix.type }}
+      run: |
+        ${{ matrix.command }}
