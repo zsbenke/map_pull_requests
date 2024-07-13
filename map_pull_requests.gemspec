@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Zsolt Benke"]
   spec.email = ["zsolt@decoding.io"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.summary = "Plot your pull requests on a timeline"
   spec.homepage = "https://github.com/zsbenke/map_pull_requests/"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
