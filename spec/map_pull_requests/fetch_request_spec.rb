@@ -42,7 +42,7 @@ RSpec.describe MapPullRequests::FetchRequest do
       end
 
       it "raises an error" do
-        expect { fetch_request.call }.to raise_error("GitHub CLI is not installed")
+        expect { fetch_request.call }.to raise_error("GitHub CLI is not installed. Please install it from https://cli.github.com/")
       end
     end
   end

@@ -18,7 +18,16 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+## Errors
+
+### GitHub CLI not installed
+
+If the GitHub CLI is not installed, the following error message will be displayed:
+
+```bash
+$ map_pull_requests
+GitHub CLI is not installed. Please install it from https://cli.github.com/
+```
 
 ## Development
 

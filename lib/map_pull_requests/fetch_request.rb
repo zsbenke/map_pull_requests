@@ -14,7 +14,9 @@ module MapPullRequests
     end
 
     def call
-      raise "GitHub CLI is not installed" unless self.class.github_cli_installed?
+      unless self.class.github_cli_installed?
+        raise "GitHub CLI is not installed. Please install it from https://cli.github.com/"
+      end
 
       fetch_results
       build_data
