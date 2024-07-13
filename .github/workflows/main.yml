@@ -12,8 +12,15 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Run ${{ matrix.type }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - type: 'RuboCop'
+            command: 'bundle exec rubocop'
+          - type: 'RSpec'
+            command: 'bundle exec rspec --format documentation --color'
 
     steps:
     - name: Checkout repository
@@ -22,17 +29,13 @@ jobs:
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: '3.2.4'
+        ruby-version: '3.2.4'  # Adjust the Ruby version as necessary
 
     - name: Install dependencies
       run: |
         gem install bundler
         bundle install
 
-    - name: Run RuboCop
+    - name: ${{ matrix.type }}
       run: |
-        bundle exec rubocop
-
-    - name: Run RSpec
-      run: |
-        bundle exec rspec --format documentation --color
+        ${{ matrix.command }}
