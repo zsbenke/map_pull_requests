@@ -14,13 +14,15 @@ module MapPullRequests
     end
 
     def call
+      raise "GitHub CLI is not installed" unless self.class.github_cli_installed?
+
       fetch_results
       build_data
     end
 
     def self.github_cli_installed?
       system("gh --version > /dev/null").tap do |installed|
-        raise "GitHub CLI is not installed" unless installed
+        return installed
       end
     end
 
