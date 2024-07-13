@@ -1,0 +1,30 @@
+{
+  "data": {
+    "user": {
+      "pullRequests": {
+        "edges": [
+          {
+            "node": {
+              "title": "What’s it like to be colorblind?",
+              "number": 2,
+              "state": "OPEN",
+              "url": "https://github.com/zsbenke/Writings/pull/2",
+              "createdAt": "2023-12-07T17:03:33Z",
+              "closedAt": null
+            }
+          },
+          {
+            "node": {
+              "title": "Install Ruby on Remote",
+              "number": 1,
+              "state": "OPEN",
+              "url": "https://github.com/zsbenke/dotfiles/pull/1",
+              "createdAt": "2024-07-13T10:35:07Z",
+              "closedAt": null
+            }
+          }
+        ]
+      }
+    }
+  }
+}
